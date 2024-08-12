@@ -9,8 +9,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddDbContext<FileToDbAppDbContext>(optionsBuilder =>
         {
-            optionsBuilder.UseSqlServer(connectionString,
-                x => x.MigrationsAssembly("Database.Migrations"));
+            optionsBuilder.UseSqlServer(connectionString);
         });
 
         return services;

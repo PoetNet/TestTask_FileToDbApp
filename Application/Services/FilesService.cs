@@ -118,9 +118,7 @@ public class FilesService(IWordsService wordsService, ILogger<IFilesService> log
         if (fileSize > maxFileSize)
         {
             _logger.LogError($"File with size {fileSize} is not processed");
-            Console.WriteLine($"It's too big file, try another one. Less than {maxFileSize} bytes...");
-
-            Environment.Exit(1);
+            throw new ArgumentException($"It's too big file, try another one. Less than {maxFileSize} bytes...");
         }
     }
 }

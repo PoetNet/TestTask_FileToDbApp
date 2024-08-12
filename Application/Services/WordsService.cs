@@ -8,7 +8,6 @@ namespace Application.Services;
 
 public interface IWordsService
 {
-    Task<List<Word>> GetAll(CancellationToken cancellationToken);
     Task WriteAsync(Dictionary<string, int> wordsCounts, CancellationToken cancellationToken);
 }
 
@@ -16,15 +15,6 @@ public class WordsService(FileToDbAppDbContext context, ILogger<IWordsService> l
 {
     private readonly FileToDbAppDbContext _context = context;
     private readonly ILogger<IWordsService> _logger = logger;
-
-    public async Task<List<Word>> GetAll(CancellationToken cancellationToken)
-    {
-        FormattableString query = $"SELECT * FROM Words;";
-
-        return await _context.Words
-            .FromSql(query)
-            .ToListAsync(cancellationToken);
-    }
 
     public async Task WriteAsync(Dictionary<string, int> wordsOccurrences, CancellationToken cancellationToken)
     {

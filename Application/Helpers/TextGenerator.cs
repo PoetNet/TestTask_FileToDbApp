@@ -4,7 +4,7 @@ namespace Application.Helpers;
 
 public interface ITextGenerator
 {
-    string Generate(int wordsToGenerate); 
+    string Generate(int wordsToGenerate);
 }
 public class LoremGenerator : ITextGenerator
 {

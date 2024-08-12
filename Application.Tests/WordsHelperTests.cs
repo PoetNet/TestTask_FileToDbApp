@@ -21,8 +21,8 @@ public class WordsHelperTests
 
         //Assert
         Assert.Equal(expected, result);
-    }    
-    
+    }
+
     [Fact]
     public void GetWordsWithCount_SimpleRussianText_SuccessResult()
     {
